@@ -1,0 +1,322 @@
+<%- include("partials/header") -%>
+  <div class="container">
+    <h1>COVID-19 TRACKER</h1>
+  </div>
+  <div class="container-fluid box2">
+    <h2>COVID-19 Cases Overview Across <b>
+        <%=countries %>
+      </b>
+    </h2>
+  </div>
+
+  <div class="container mt-3 px-4">
+    <div class="row gx-4">
+      <div class="col">
+        <div class="p-3 border bg-light">
+          <% if(NEWCONFIRMED !=0 && NEWRECOVERED !=0 && NEWDEATHS !=0){ %>
+
+            <div class="row fold">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                <%= TOTALCONFIRMED %>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm newcases" id="card-text2">
+                <i class="fas fa-arrow-up"></i>
+                <%= NEWCONFIRMED %>
+              </div>
+            </div>
+            <div class="row fold">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                <%= TOTALRECOVERED %>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover newcases" id="card-text3">
+                <i class="fas fa-arrow-up"></i>
+                <%= NEWRECOVERED %>
+              </div>
+            </div>
+            <div class="row fold">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                <%= TOTALDEATHS %>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death newcases" id="card-text4">
+                <i class="fas fa-arrow-up"></i>
+                <%= NEWDEATHS %>
+              </div>
+            </div>
+
+            <% } %>
+              <% if(NEWCONFIRMED==0 && NEWRECOVERED==0 && NEWDEATHS==0){ %>
+
+                <div class="row fold">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                    <%= TOTALCONFIRMED %>
+                  </div>
+
+                </div>
+                <div class="row fold">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 recover row2">
+                    <%= TOTALRECOVERED %>
+                  </div>
+
+                </div>
+                <div class="row fold">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 death row2">
+                    <%= TOTALDEATHS %>
+                  </div>
+
+                </div>
+
+                <% } %>
+                  <% if(NEWCONFIRMED==0 && NEWRECOVERED==0 && NEWDEATHS !=0){ %>
+
+                    <div class="row fold">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                        <%= TOTALCONFIRMED %>
+                      </div>
+
+                    </div>
+                    <div class="row fold">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                        <%= TOTALRECOVERED %>
+                      </div>
+
+                    </div>
+                    <div class="row fold">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                        <%= TOTALDEATHS %>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death newcases" id="card-text4">
+                        <i class="fas fa-arrow-up"></i>
+                        <%= NEWDEATHS %>
+                      </div>
+                    </div>
+
+                    <% } %>
+                      <% if(NEWCONFIRMED==0 && NEWRECOVERED !=0 && NEWDEATHS==0){ %>
+
+                        <div class="row fold">
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                            <%= TOTALCONFIRMED %>
+                          </div>
+
+                        </div>
+                        <div class="row fold">
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                            <%= TOTALRECOVERED %>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover newcases" id="card-text3">
+                            <i class="fas fa-arrow-up"></i>
+                            <%= NEWRECOVERED %>
+                          </div>
+                        </div>
+                        <div class="row fold">
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                            <%= TOTALDEATHS %>
+                          </div>
+
+                        </div>
+
+                        <% } %>
+                          <% if(NEWCONFIRMED==0 && NEWRECOVERED !=0 && NEWDEATHS !=0){ %>
+
+                            <div class="row fold">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                                <%= TOTALCONFIRMED %>
+                              </div>
+
+                            </div>
+                            <div class="row fold">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                                <%= TOTALRECOVERED %>
+                              </div>
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover newcases" id="card-text3">
+                                <i class="fas fa-arrow-up"></i>
+                                <%= NEWRECOVERED %>
+                              </div>
+                            </div>
+                            <div class="row fold">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                                <%= TOTALDEATHS %>
+                              </div>
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death newcases" id="card-text4">
+                                <i class="fas fa-arrow-up"></i>
+                                <%= NEWDEATHS %>
+                              </div>
+                            </div>
+
+                            <% } %>
+                              <% if(NEWCONFIRMED !=0 && NEWRECOVERED==0 && NEWDEATHS==0){ %>
+
+                                <div class="row fold">
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :</div>
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm  row2">
+                                    <%= TOTALCONFIRMED %>
+                                  </div>
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="card-text2">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <%= NEWCONFIRMED %>
+                                  </div>
+                                </div>
+                                <div class="row fold">
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :</div>
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                                    <%= TOTALRECOVERED %>
+                                  </div>
+
+                                </div>
+                                <div class="row fold">
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                                    <%= TOTALDEATHS %>
+                                  </div>
+
+                                </div>
+
+                                <% } %>
+                                  <% if(NEWCONFIRMED !=0 && NEWRECOVERED==0 && NEWDEATHS !=0){ %>
+
+                                    <div class="row fold">
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1 "> Confirmed :</div>
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row2 confirm">
+                                        <%= TOTALCONFIRMED %>
+                                      </div>
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm"
+                                        id="card-text2">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <%= NEWCONFIRMED %>
+                                      </div>
+                                    </div>
+                                    <div class="row fold">
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1 "> Recovered :</div>
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row2 recover">
+                                        <%= TOTALRECOVERED %>
+                                      </div>
+
+                                    </div>
+                                    <div class="row fold">
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1 "> Deaths :</div>
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row2 death">
+                                        <%= TOTALDEATHS %>
+                                      </div>
+                                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death " id="card-text4">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <%= NEWDEATHS %>
+                                      </div>
+                                    </div>
+
+                                    <% } %>
+                                      <% if(NEWCONFIRMED !=0 && NEWRECOVERED !=0 && NEWDEATHS==0){ %>
+
+                                        <div class="row fold">
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Confirmed :
+                                          </div>
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm row2">
+                                            <%= TOTALCONFIRMED %>
+                                          </div>
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 confirm newcases"
+                                            id="card-text2">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <%= NEWCONFIRMED %>
+                                          </div>
+                                        </div>
+                                        <div class="row fold">
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Recovered :
+                                          </div>
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover row2">
+                                            <%= TOTALRECOVERED %>
+                                          </div>
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 recover newcases"
+                                            id="card-text3">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <%= NEWRECOVERED %>
+                                          </div>
+                                        </div>
+                                        <div class="row fold">
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 row1"> Deaths :</div>
+                                          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 death row2">
+                                            <%= TOTALDEATHS %>
+                                          </div>
+
+                                        </div>
+
+                                        <% } %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card-body card shadow p-3 card-box mb-5 bg-white rounded">
+          <div class="container-fluid wrapper">
+            <canvas id="Chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    <div class="container">
+        <div class="row row-cols-2">
+          <div class="col-lg-2"> Confirmed -  <%= TOTALCONFIRMED %> <p> <i class="fas fa-arrow-up"></i> <%= NEWCONFIRMED %> </p></div>
+          <div class="col-lg-2"> Recovered -  <%= TOTALRECOVERED %>  <p> <i class="fas fa-arrow-up"></i> <%= NEWRECOVERED %> </p> </div>
+          <div class="col-lg-2"> Deaths -  <%= TOTALDEATHS %> <p> <i class="fas fa-arrow-up"></i> <%= NEWDEATHS %> </p> </div>
+        </div>
+      </div>
+      <style>
+        .wrapper{
+          width: 500px;
+          height: 500px;
+          margin-right: 100px;
+        }
+      </style>
+      <div class="container-fluid wrapper">
+        <canvas id="Chart"></canvas>  
+      </div> -->
+  <script>
+    var ctx = document.getElementById('Chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Confirmed', 'Recovered', 'Deaths'],
+        datasets: [{
+          label: 'confirmed',
+          data: ["<%= TOTALCONFIRMED %>", "<%= TOTALRECOVERED %>", "<%= TOTALDEATHS %>"],
+          backgroundColor: [
+            'rgb(255, 26, 26, 0.2)',
+            'rgb(0, 179, 0, 0.2)',
+            'rgb(84, 95, 84, 0.2)'
+
+          ],
+          borderColor: [
+            'rgb(255, 26, 26, 1)',
+            'rgb(0, 179, 0, 1)',
+            'rgb(84, 95, 84, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+      legend: {
+        display: false
+      },
+    });
+  </script>
+  <%- include("partials/footer") -%>

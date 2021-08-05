@@ -1,0 +1,281 @@
+<%- include("partials/header") -%>
+    <div class="container">
+        <h1>COVID-19 TRACKER</h1>
+    </div>
+    <div class="box">
+        <h2>COVID-19 Cases Overview Across India</h2>
+    </div>
+    <% if(NEWCONFIRMED!=0 || NEWRECOVERED!=0 || NEWDEATHS!=0){ %>
+        <div class="card shadow p-3 card-box mb-5 bg-white rounded box1" style="width:50%;height:425px">
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-title">Confirmed : </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 count card-text">
+                            <%= TOTALCONFIRMED %>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="card-text2"><i
+                                class="fas fa-arrow-up"></i>
+                            <%= NEWCONFIRMED %>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-title">Recovered : </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 count card-text">
+                            <%= TOTALRECOVERED %>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="card-text3"><i
+                                class="fas fa-arrow-up"></i>
+                            <%= NEWRECOVERED %>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-title">Deaths : </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 count card-text">
+                            <%= TOTALDEATHS %>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" id="card-text4"><i
+                                class="fas fa-arrow-up"></i>
+                            <%= NEWDEATHS %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } else{ %>
+            <div class="card shadow p-3 card-box mb-5 bg-white rounded box1" style="width:50%;height:425px">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mb-5 mt-3">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 card-title">Confirmed : </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 count card-text">
+                                <%= TOTALCONFIRMED %>
+                            </div>
+
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 card-title">Recovered : </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 count card-text">
+                                <%= TOTALRECOVERED %>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 card-title">Deaths : </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 count card-text">
+                                <%= TOTALDEATHS %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                <script>
+                    $('.count').counterUp({
+                        delay: 10,
+                        time: 1000
+                    });
+                </script>
+                <div class="container-fluid">
+                <div class="box-intro">
+                    <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered
+                        coronavirus.
+                        Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes and cancer are more likely to develop serious illness.
+                    </p>
+                </div>
+            </div>
+
+                <div class="container graph">
+                    <div class="row">
+
+                        <div class="card shadow p-3 card-box mb-5 bg-white rounded">
+                            <div class="col-lg-12 col-sm-12">
+                                <h2 class="grp">Daily Cases Across India</h2>
+                                <canvas class="graph1" id="myChart" height="200px" width="500px"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card shadow p-3 card-box mb-5 bg-white rounded">
+                            <div class="col-lg-12 col-sm-12">
+                                <h2 class="grp">Total Cases Across India</h2>
+                                <canvas class="graph1" id="Chart" height="200px" width="500px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    var DailyConfirmed = [];
+                    var DailyRecovered = [];
+                    var DailyDecreased = [];
+                    var TotalConfirmed = [];
+                    var TotalRecovered = [];
+                    var TotalDecreased = [];
+                    var DATE = [];
+
+                    async function chart() {
+                        await data();
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: DATE,
+                                datasets: [{
+                                    label: 'Daily Confirmed',
+                                    data: DailyConfirmed,
+                                    backgroundColor: [
+                                        'red',
+
+                                    ],
+                                    borderColor: [
+                                        'red',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Daily Recovered',
+                                    data: DailyRecovered,
+                                    backgroundColor: [
+                                        'green',
+
+                                    ],
+                                    borderColor: [
+                                        'green',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Daily Deaths',
+                                    data: DailyDecreased,
+                                    backgroundColor: [
+                                        'black',
+
+                                    ],
+                                    borderColor: [
+                                        'black',
+
+                                    ],
+                                    borderWidth: 1
+                                }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    chart();
+
+
+
+                    async function charts() {
+                        await data();
+                        var ctx = document.getElementById('Chart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: DATE,
+                                datasets: [{
+                                    label: 'Total Confirmed',
+                                    data: TotalConfirmed,
+                                    backgroundColor: [
+                                        'red',
+
+                                    ],
+                                    borderColor: [
+                                        'red',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Total Recovered',
+                                    data: TotalRecovered,
+                                    backgroundColor: [
+                                        'green',
+
+                                    ],
+                                    borderColor: [
+                                        'green',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Total Deaths',
+                                    data: TotalDecreased,
+                                    backgroundColor: [
+                                        'black',
+
+                                    ],
+                                    borderColor: [
+                                        'black',
+
+                                    ],
+                                    borderWidth: 1
+                                }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    charts();
+
+
+
+                    async function data() {
+                        const url = "https://api.covid19india.org/data.json"
+                        const response = await fetch(url)
+                        const bardata = await response.json()
+
+                        const confirmed = bardata.cases_time_series.map((x) => x.dailyconfirmed)
+                        const recovered = bardata.cases_time_series.map((x) => x.dailyrecovered)
+                        const decreased = bardata.cases_time_series.map((x) => x.dailydeceased)
+                        const confirm = bardata.cases_time_series.map((x) => x.totalconfirmed)
+                        const recover = bardata.cases_time_series.map((x) => x.totalrecovered)
+                        const decrease = bardata.cases_time_series.map((x) => x.totaldeceased)
+                        const Date = bardata.cases_time_series.map((y) => y.dateymd)
+
+                        DailyConfirmed = confirmed;
+                        DailyRecovered = recovered;
+                        DailyDecreased = decreased;
+                        TotalConfirmed = confirm;
+                        TotalRecovered = recover;
+                        TotalDecreased = decrease;
+                        DATE = Date;
+
+                    }
+                </script>
+              <!-- <div class="container">
+                    <h2 style="text-align: left;">COVID-19 TRACKER</h2>
+                </div>
+                <div class="container">
+                    <h2>COVID-19 Cases Overview Across India</h2>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 style="text-align: center;">Confirmed cases: 28574350</h1>
+                        </div>
+                        <div class="col-lg-12">
+                            <h1  style="text-align: center;">Recovered cases: 26597655</h1>
+                        </div>
+                        <div class="col-lg-12">
+                            <h1 style="text-align: center;">Death cases:  340702</h1>
+                        </div>
+                    </div>
+                </div> --> 
+
+                <%- include("partials/footer") -%>

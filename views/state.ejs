@@ -1,0 +1,102 @@
+
+<%- include("partials/header") -%>
+<div class="container">
+  <h1>COVID-19 TRACKER</h1>
+</div>
+  <div class="container-fluid box2">
+    <h2>COVID-19 Cases Overview Across <b><%=state%></b></h2>
+  </div>
+  <div class="container mt-3 px-4">
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3 border bg-light">
+         <div class="row">
+          <div class="col-lg-6 col-md-12 row1"> Confirmed :</div>
+          <div class="col-lg-6  col-md-12 confirm row2"><%= confirmed %> </div>
+         </div>
+         <div class="row">
+          <div class="col-lg-6 col-md-12 row1"> Active :</div>
+          <div class="col-lg-6  col-md-12 active row2 "><%= active %> </div>
+         </div>
+         <div class="row">
+          <div class="col-lg-6  col-md-12  row1"> Recovered :</div>
+          <div class="col-lg-6  col-md-12 recover row2"><%= recovered %> </div>
+         </div>
+         <div class="row">
+          <div class="col-lg-6  col-md-12  row1"> Deaths :</div>
+          <div class="col-lg-6  col-md-12 death row2"><%= deaths %> </div>
+         </div>
+       </div>
+      </div>
+      <div class="col">
+        <div class="card-body card shadow p-3 card-box mb-5 bg-white rounded">
+          <div class="container-fluid wrapper">
+            <canvas id="myChart"></canvas>  
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript">
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+              labels: ['Confirmed','Active', 'Recovered', 'Deaths'],
+              datasets: [{
+                 label:'confirmed',
+                 data: ["<%= confirmed %>","<%= active %>","<%= recovered %>","<%= deaths %>"],
+                  backgroundColor: [
+                      'rgb(255, 26, 26, 0.2)',
+                      'rgb(255, 102, 0, 0.2)',
+                      'rgb(0, 179, 0, 0.2)',
+                      'rgb(84, 95, 84, 0.2)'    
+                  ],
+                  borderColor: [
+                      'rgb(255, 26, 26, 1)',
+                      'rgb(255, 102, 0, 1)',
+                      'rgb(0, 179, 0, 1)',
+                      'rgb(84, 95, 84, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+
+      </script> 
+    <!--<div class="container">
+        <h1>COVID-19 TRACKER</h1>
+      </div>
+      <div class="container-fluid">
+        <h2>COVID-19 Cases Overview Across <b><%=state%></b></h2>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3>Confirmed : 587903 </h3>
+          </div>
+          <div class="row">
+          <div class="col-lg-6">
+                 <h3>Active : 12981</h3>
+          </div>
+        </div>
+          <div class="col-lg-6">
+            <h3>Recovered : 559360</h3>
+          </div>
+          <div class="row">
+          <div class="col-lg-6">
+            <h3>Deaths : 15562</h3>
+          </div>
+        </div>
+        </div>
+      </div>-->  
+<%- include("partials/footer") -%>

@@ -1,0 +1,208 @@
+<%- include("partials/header") -%>
+  <div class="container">
+    <h1>COVID-19 TRACKER</h1>
+  </div>
+  <div class="box">
+    <h2>COVID-19 Cases Overview Across Different Countries</h2>
+    <h2>Last Updated Date <%= date %> </h2>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form method="post" action="/country" class="d-flex">
+        <input class="form-control me-2" type="search" name="country" autocomplete="off"
+          placeholder="Search Your Country" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" style="background-color:#e3cade;">Countries</th>
+        <th scope="col" style="background-color:#e3cade;">Confirmed Cases</th>
+        <th scope="col" style="background-color:#e3cade;">Recovered Cases</th>
+        <th scope="col" style="background-color:#e3cade;">Deaths</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% for(var i=0; i<191; i++){ %>
+        <% if(NEWCONFIRMED[i]==0 && NEWRECOVERED[i]==0 && NEWDEATHS[i]==0){ %>
+          <tr>
+            <th scope="row">
+              <%= countries[i] %>
+            </th>
+            <td style="color: red;">
+              <%= TOTALCONFIRMED[i] %>
+            </td>
+            <td style="color: green;">
+              <%= TOTALRECOVERED[i] %>
+            </td>
+            <td style="color: grey;">
+              <%= TOTALDEATHS[i] %>
+            </td>
+          </tr>
+          <% } %>
+            <% if(NEWCONFIRMED[i]==0 && NEWRECOVERED[i]==0 && NEWDEATHS[i] !=0){ %>
+              <tr>
+                <th scope="row">
+                  <%= countries[i] %>
+                </th>
+                <td style="color: red;">
+                  <%= TOTALCONFIRMED[i] %>
+
+                </td>
+                <td style="color: green;">
+                  <%= TOTALRECOVERED[i] %>
+
+                </td>
+                <td style="color: grey;">
+                  <%= TOTALDEATHS[i] %>
+                    <p><i class="fas fa-arrow-up"></i>
+                      <%= NEWDEATHS[i] %>
+                    </p>
+                </td>
+              </tr>
+              <% } %>
+                <% if(NEWCONFIRMED[i]==0 && NEWRECOVERED[i] !=0 && NEWDEATHS[i]==0){ %>
+                  <tr>
+                    <th scope="row">
+                      <%= countries[i] %>
+                    </th>
+                    <td style="color: red;">
+                      <%= TOTALCONFIRMED[i] %>
+
+                    </td>
+                    <td style="color: green;">
+                      <%= TOTALRECOVERED[i] %>
+                        <p><i class="fas fa-arrow-up"></i>
+                          <%= NEWRECOVERED[i] %>
+                        </p>
+                    </td>
+                    <td style="color: grey;">
+                      <%= TOTALDEATHS[i] %>
+
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% if(NEWCONFIRMED[i]==0 && NEWRECOVERED[i] !=0 && NEWDEATHS[i] !=0){ %>
+                      <tr>
+                        <th scope="row">
+                          <%= countries[i] %>
+                        </th>
+                        <td style="color: red;">
+                          <%= TOTALCONFIRMED[i] %>
+
+                        </td>
+                        <td style="color: green;">
+                          <%= TOTALRECOVERED[i] %>
+                            <p><i class="fas fa-arrow-up"></i>
+                              <%= NEWRECOVERED[i] %>
+                            </p>
+                        </td>
+                        <td style="color: grey;">
+                          <%= TOTALDEATHS[i] %>
+                            <p><i class="fas fa-arrow-up"></i>
+                              <%= NEWDEATHS[i] %>
+                            </p>
+                        </td>
+                      </tr>
+                      <% } %>
+                        <% if(NEWCONFIRMED[i] !=0 && NEWRECOVERED[i]==0 && NEWDEATHS[i]==0){ %>
+                          <tr>
+                            <th scope="row">
+                              <%= countries[i] %>
+                            </th>
+                            <td style="color: red;">
+                              <%= TOTALCONFIRMED[i] %>
+                                <p><i class="fas fa-arrow-up"></i>
+                                  <%= NEWCONFIRMED[i] %>
+                                </p>
+                            </td>
+                            <td style="color: green;">
+                              <%= TOTALRECOVERED[i] %>
+
+                            </td>
+                            <td style="color: grey;">
+                              <%= TOTALDEATHS[i] %>
+
+                            </td>
+                          </tr>
+                          <% } %>
+                            <% if(NEWCONFIRMED[i] !=0 && NEWRECOVERED[i]==0 && NEWDEATHS[i] !=0){ %>
+                              <tr>
+                                <th scope="row">
+                                  <%= countries[i] %>
+                                </th>
+                                <td style="color: red;">
+                                  <%= TOTALCONFIRMED[i] %>
+                                    <p><i class="fas fa-arrow-up"></i>
+                                      <%= NEWCONFIRMED[i] %>
+                                    </p>
+                                </td>
+                                <td style="color: green;">
+                                  <%= TOTALRECOVERED[i] %>
+
+                                </td>
+                                <td style="color: grey;">
+                                  <%= TOTALDEATHS[i] %>
+                                    <p><i class="fas fa-arrow-up"></i>
+                                      <%= NEWDEATHS[i] %>
+                                    </p>
+                                </td>
+                              </tr>
+                              <% } %>
+                                <% if(NEWCONFIRMED[i] !=0 && NEWRECOVERED[i] !=0 && NEWDEATHS[i]==0){ %>
+                                  <tr>
+                                    <th scope="row">
+                                      <%= countries[i] %>
+                                    </th>
+                                    <td style="color: red;">
+                                      <%= TOTALCONFIRMED[i] %>
+                                        <p><i class="fas fa-arrow-up"></i>
+                                          <%= NEWCONFIRMED[i] %>
+                                        </p>
+                                    </td>
+                                    <td style="color: green;">
+                                      <%= TOTALRECOVERED[i] %>
+                                        <p><i class="fas fa-arrow-up"></i>
+                                          <%= NEWRECOVERED[i] %>
+                                        </p>
+                                    </td>
+                                    <td style="color: grey;">
+                                      <%= TOTALDEATHS[i] %>
+
+                                    </td>
+                                  </tr>
+                                  <% } %>
+                                    <% if(NEWCONFIRMED[i] !=0 && NEWRECOVERED[i] !=0 && NEWDEATHS[i] !=0){ %>
+                                      <tr>
+                                        <th scope="row">
+                                          <%= countries[i] %>
+                                        </th>
+                                        <td style="color: red;">
+                                          <%= TOTALCONFIRMED[i] %>
+                                            <p><i class="fas fa-arrow-up"></i>
+                                              <%= NEWCONFIRMED[i] %>
+                                            </p>
+                                        </td>
+                                        <td style="color: green;">
+                                          <%= TOTALRECOVERED[i] %>
+                                            <p><i class="fas fa-arrow-up"></i>
+                                              <%= NEWRECOVERED[i] %>
+                                            </p>
+                                        </td>
+                                        <td style="color: grey;">
+                                          <%= TOTALDEATHS[i] %>
+                                            <p><i class="fas fa-arrow-up"></i>
+                                              <%= NEWDEATHS[i] %>
+                                            </p>
+                                        </td>
+                                      </tr>
+                                      <% } %>
+                                        <% } %>
+
+    </tbody>
+  </table>
+  <%- include("partials/footer") -%>

@@ -1,0 +1,277 @@
+.navbar
+{
+    padding-bottom: 1.2rem;
+}
+.nav-item
+{
+    padding: 0px 18px;
+}
+.nav-item a
+{
+    font-size: 1rem;
+}
+.navbar-nav li a:hover{
+    color: white;
+}
+h1{
+    text-align: center;
+    margin: 15px 0 15px 0;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.box-intro{
+    background-color:#e3cade;
+}
+.box-intro p{
+    padding: 23px 16px 32px 23px;
+    font-size: 28px;
+}
+.box{
+    background-color:#e3cade;
+    height: 250px;
+}
+h2{
+    font-family: 'Pontano Sans', sans-serif;
+    padding: 20px 0 0 20px;
+}
+.box2{
+    background-color:#e3cade;
+    height: 80px;
+}
+#h2box{
+    text-align:center;
+    font-weight:normal;
+    font-size: 1.5rem;
+    padding-top: 25px;
+    height: 200px;
+}
+.box1{
+    margin: auto;
+    position:relative;
+    bottom: 150px;
+}
+.grp{
+    text-align: center;
+}
+.card-title{
+    font-family: 'Esteban', serif;
+    font-size: 35px;
+    text-align: right;
+    font-weight:normal;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    padding-left: 5px;
+}
+.card-text{
+    font-size: 45px;
+    text-align: left;
+    margin-bottom: 80px;
+    font-family: noto sans,sans-serif;
+    color: #696969;
+    font-weight: bolder;
+}
+#card-text2{
+    color: red;
+    font-size: 20px;
+}
+#card-text3{
+    color: green;
+    font-size: 20px;
+}
+#card-text4{
+    color: black;
+    font-size: 20px;
+}
+.graph{
+    margin-top: 50px;
+}
+.btn-outline-success{
+    color: #597086;
+    border-color: #c088bc;
+}
+.btn-outline-success:hover {
+    color: white;
+    border-color: #c088bc;
+    background-color:#e3cade;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    color: #597086;
+    border: 1px solid #c088bc;
+}
+.confirm{
+    color:#ff1a1a;
+}
+.active{
+    color:#ff6600;
+}
+.recover{
+    color: #00b300;
+}
+.death{
+    color: grey;
+}
+.newcases{
+    text-align: center;
+}
+.fold{
+    margin: 20px 0 20px 0;
+}
+.row1{
+    font-size: 180%;
+    text-align: right;
+}
+.row2{
+    text-align: left;
+    font-size: 180%;
+}
+.about{
+    color: black;
+}
+.para{
+    margin-bottom: 1px;
+}
+.about{
+    width:55%;
+    padding-top: 71px;
+    padding-bottom: 71px;
+    background-color:#e3cade;
+    text-align: center;
+    margin-bottom: 50px;
+}
+h5{
+    text-align: center;
+    padding-top: 25px;
+}
+.vachead{
+text-align: center;
+margin: 25px 0 10px 0;
+}
+.vacsubmit:hover{
+    background-color: #c088bc;
+}
+@media only screen and (max-width: 1506px) {
+    .card-title{
+        font-family: 'Esteban', serif;
+        font-size: 25px;
+        text-align: right;
+        font-weight:normal;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        padding-left: 5px;
+    }
+    .card-text{
+        font-size: 35px;
+        text-align: left;
+        margin-bottom: 50px;
+        font-family: noto sans,sans-serif;
+        color: #696969;
+        font-weight: bolder;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .card-title{
+        font-family: 'Esteban', serif;
+        font-size: 20px;
+        text-align: center;
+        font-weight:normal;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        padding-left: 5px;
+    }
+    .card-text{
+        font-size: 23px;
+        text-align: center;
+        margin-bottom: 50px;
+        font-family: noto sans,sans-serif;
+        color: #696969;
+        font-weight: bolder;
+    }
+    #card-text2{
+        visibility: hidden;
+        color: red;
+        font-size: 5px;
+    }
+    #card-text3{
+        visibility: hidden;
+        color: green;
+        font-size: 5px;
+    }
+    #card-text4{
+        visibility: hidden;
+        color: black;
+        font-size: 5px;
+    }
+  }
+  @media only screen and (max-width: 530px) {
+    .card-title{
+        font-family: 'Esteban', serif;
+        font-size: 20px;
+        text-align: center;
+        font-weight:normal;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        padding-left: 5px;
+    }
+    .card-text{
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 50px;
+        font-family: noto sans,sans-serif;
+        color: #696969;
+        font-weight: bolder;
+    }
+    #card-text2{
+        visibility: hidden;
+        color: red;
+        font-size: 5px;
+    }
+    #card-text3{
+        visibility: hidden;
+        color: green;
+        font-size: 5px;
+    }
+    #card-text4{
+        visibility: hidden;
+        color: black;
+        font-size: 5px;
+    }
+    .mb-2 {
+        margin-bottom: -2.5rem!important;
+    }
+  }
+  @media only screen and (max-width: 392px) {
+    .card-title{
+        font-family: 'Esteban', serif;
+        font-size: 16px;
+        text-align: center;
+        font-weight:normal;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        padding-left: 5px;
+    }
+    .card-text{
+        font-size: 17px;
+        text-align: center;
+        margin-bottom: 50px;
+        font-family: noto sans,sans-serif;
+        color: #696969;
+        font-weight: bolder;
+    }
+    #card-text2{
+        visibility: hidden;
+        color: red;
+        font-size: 5px;
+    }
+    #card-text3{
+        visibility: hidden;
+        color: green;
+        font-size: 5px;
+    }
+    #card-text4{
+        visibility: hidden;
+        color: black;
+        font-size: 5px;
+    }
+  }
+
